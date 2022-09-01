@@ -1,4 +1,12 @@
 const PORT=process.env.PORT||8000;
+const http=require("http");
+const app=require("./app");
 
-cconsole.log(PORT)
+const server=http.createServer(app);
+
+server.listen(PORT,()=>{
+    console.log(`Listening on port ${PORT}...`)
+})
+
+console.log(PORT)
 

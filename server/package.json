@@ -5,13 +5,16 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch":"nodemon src/server.js",
-    "start": "PORT=500 && node src/server.js"
+    "watch": "SET PORT=5000 && nodemon src/server.js",
+    "start": "SET PORT=5000 && node src/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^2.0.19"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
   }
 }
