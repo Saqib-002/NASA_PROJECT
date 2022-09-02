@@ -9,7 +9,7 @@ function httpGetAllLaunches(req,res){
 
 function httpAddNewLaunch(req,res){
     const launch=req.body;
-    if(!launch.mission || !launch.launchDate || !launch.rocket || !launch.destination){
+    if(!launch.mission || !launch.launchDate || !launch.rocket || !launch.target){
         return res.status(400).json({
             error: 'No launch date provided',
         })
