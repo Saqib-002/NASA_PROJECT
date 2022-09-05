@@ -1,0 +1,4 @@
+user_name:nasa_api
+password: Qo9SR0ZgTdtV1dYq
+
+connection string: mongodb+srv://nasa_api:<password>@cluster0.6juh3zw.mongodb.net/?retryWrites=true&w=majority
