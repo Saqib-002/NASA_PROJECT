@@ -53,16 +53,16 @@ async function saveLaunch(launch){
     })
 }
 
-function addNewLaunch(launch){
-    latestFlightNumber++;
-    launches.set(latestFlightNumber,
-        Object.assign(launch,
+async function addNewLaunch(launch){
+    const newFlightNumber=await getLatestFLightNumber()+1;
+    const newLaunch=Object.assign(launch,
         {
             success:true,
             upcoming:true,
             customer:["Zero To Mastery","NASA"],
-            flightNumber:latestFlightNumber
-        }));
+            flightNumber:newFlightNumber
+        });
+        await saveLaunch(newLaunch);
 } 
 function abortLaunchById(launchId){
     const aborted=launches.get(launchId)
