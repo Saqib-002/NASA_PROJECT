@@ -8,7 +8,7 @@ const launch={
     rocket:'Explorer IS1',
     launchDate:new Date('December 27, 2030'),
     target:'Kepler-442 b',
-    customer:['ZTM','NASA'],
+    customers:['ZTM','NASA'],
     upcoming:true,
     success:true,
 }
@@ -21,8 +21,11 @@ function existsLaunchWithId(launchId){
     return launches.has(launchId);
 }
 
-function getAllLaunches(){
-    return Array.from(launches.values())
+async function getAllLaunches(){
+    return await launchesDatabase.find({},{
+        '_id':0,
+        '__v':0
+    });
 }
 
 async function saveLaunch(launch){
