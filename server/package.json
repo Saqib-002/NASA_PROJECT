@@ -4,7 +4,7 @@
   "description": "NASA MISSION CONTROL API",
   "main": "server.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --detectOpenHandles",
     "test-watch": "jest --watch",
     "watch": "SET PORT=5000 && nodemon src/server.js",
     "start": "SET PORT=5000 && node src/server.js",
@@ -13,6 +13,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "jest":{
+    "testEnvironment":"node"
+  },
   "devDependencies": {
     "jest": "^29.0.1",
     "nodemon": "^2.0.19"
