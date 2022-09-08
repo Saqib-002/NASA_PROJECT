@@ -17,7 +17,6 @@ const launch={
 
 saveLaunch(launch)
 
-// launches.set(launch.flightNumber,launch);
 
 async function existsLaunchWithId(launchId){
     return await launchesDatabase.findOne({
@@ -73,7 +72,7 @@ async function abortLaunchById(launchId){
         upcoming:false,
         success:false
     })
-    return aborted.ok==1 && aborted.nModified==1;
+    return aborted.acknowledged===true && aborted.modifiedCount===1;
 }
 
 module.exports ={
