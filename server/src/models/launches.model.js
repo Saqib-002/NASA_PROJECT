@@ -17,9 +17,13 @@ const launch={
 
 saveLaunch(launch)
 
-const SPACEX_URL="https://api.spacexdata.com/v5/launches/query"
+const SPACEX_URL="https://api.spacexdata.com/v5/launches/query";
 
-async function loadLauchesData(){
+async function findLaunch(filter){
+    return await launchesDatabase.findOne(filter);
+}
+
+async function populateLaunches(){
     const response =await axios.post(SPACEX_URL,{
         query:{},
         options:{
@@ -59,8 +63,21 @@ async function loadLauchesData(){
     }
 }
 
+async function loadLauchesData(){
+    const firstLaunch=await findLaunch({
+        flightNumber:1,
+        rocket:'Falcon 1',
+        mission:'FalconSat'
+    })
+    if(firstLaunch){
+        console.log("Launch data already exists!")
+    }else{
+        await populateLaunches();
+    }
+}
+
 async function existsLaunchWithId(launchId){
-    return await launchesDatabase.findOne({
+    return await findLaunch({
         flightNumber:launchId
     })
 }
