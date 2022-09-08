@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/Saqib-002/NASA_PROJECT#readme",
   "dependencies": {
+    "axios": "^0.27.2",
     "mongoose": "^6.5.4"
   }
 }
