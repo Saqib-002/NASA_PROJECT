@@ -51,7 +51,6 @@ async function populateLaunches(){
             upcoming:launchDoc['upcoming'],
             success:launchDoc['success'],
         }
-        console.log(launch);
         saveLaunch(launch)
     }
 }
